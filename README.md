@@ -1,5 +1,5 @@
-# Pneumatic Artificial Muscle Nonlinear Dynamics Analysis and SYSID
-Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs). Features NLARX system identification (Sigmoid, Wavelet) and robust state estimation (UKF) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo and Model Predictive Control
+## Pneumatic Artificial Muscle Nonlinear Dynamics Analysis and SYSID
+Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs). Features NLARX system identification (Sigmoid, Wavelet, idTreePartition) and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control. 
 
 
 
@@ -7,10 +7,13 @@ Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs). Features NLARX 
 
 This project utilizes a **dual-licensing framework** to distinguish between functional software and technical research analysis:
 
-* Software & Scripts: All MATLAB source code (.m) and supporting functions are provided under the MIT License [cite: 2026-01-23, 2026-02-11].
+* Software & Scripts: All MATLAB source code (.m) and supporting functions are provided under the **MIT License**.
 
-* Technical Analysis: The reports, unique figure interpretations, and design-decision narratives contained in the README files are copyright © 2026 [Bryan Lukehart-Yun] and licensed under CC BY-NC-ND 4.0 
+* Technical Analysis: The reports, unique figure interpretations, and design-decision narratives contained in the README files are copyright © 2026 Bryan Lukehart-Yun and licensed under **CC BY-NC-ND 4.0**. 
 
-* Data Attribution: The provided 10,000-sample dataset (.mat) is a randomized, non-representative slice intended for architectural demonstration [cite: 2026-02-22]. Full high-fidelity global datasets (15M+ samples) and theoretical derivations are reserved for upcoming publications in IEEE T-RO and IJRR [cite: 2025-12-19, 2026-02-18].
+* Data Attribution: The provided 10,000-sample dataset containing multiple permutations (.mat) is a series of randomized, non-representative slices **intended for architectural demonstration**.
+Full high-fidelity datasets (15M+ samples) and theoretical derivations are reserved for upcoming publications in T-RO, IJRR, and Data In Brief. 
 
-Citation: If you utilize this GNC framework or the UKF bias-rejection analysis in your work, please attribute it to this repository [cite: 2026-02-11, 2026-02-22].
+* **Future Release** The complete 15-million-sample global dataset will be published via Data in Brief; this repository will be updated with the public access links upon release. 
+
+**Citation**: If you utilize this GNC framework or the UKF bias-rejection analysis in your work, please attribute it to this repository or the forthcoming Zenodo DOI. 
