@@ -1,4 +1,4 @@
-## Pneumatic Artificial Muscle Nonlinear Dynamics Analysis and SYSID
+## Pneumatic Artificial Muscle Nonlinear Dynamics Analysis
 **Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs). Features NLARX system identification (Sigmoid, Wavelet, idTreePartition) and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control.** 
 
 **Preface**: Traditional industry estimators (EKF/CKF) fail on soft-actuator dynamics due to inherent hysteresis and non-differentiable gradient spikes. In this repository, a series of reports aims to create a unified workflow that models, estimates, and predicts a solution to dealing with nonlinear hysteretic actuators. 
