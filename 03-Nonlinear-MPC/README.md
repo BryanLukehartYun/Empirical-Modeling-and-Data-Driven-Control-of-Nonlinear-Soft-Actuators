@@ -1,4 +1,4 @@
-# **Technical Report #3: Nonlinear Model Predictive Control (NMPC)**
+# **Technical Report #3 - Nonlinear Model Predictive Control (NMPC)**
 
 ## **Overview & Data Disclaimer**
 This report evaluates the final control layer of the framework: a **Nonlinear MPC** designed to track displacement targets in high-hysteresis pneumatic actuators. 
