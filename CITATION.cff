@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this framework, please cite it as below."
+authors:
+  - family-names: "Lukehart-Yun"
+    given-names: "Bryan"
+    affiliation: "Rochester Institute of Technology"
+title: "Nonlinear-Actuators-GNC-Robotics-Framework"
+version: 1.0.0
+date-released: 2026-02-22
+url: "https://github.com/BryanLukehartYun/Nonlinear-Actuators-GNC-Robotics-Framework"
