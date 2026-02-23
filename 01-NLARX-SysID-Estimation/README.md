@@ -13,13 +13,13 @@ The plant was modeled using three distinct Nonlinear ARX (NLARX) models to map p
 
 * **Performance (Figure 1)**: Initial time-series estimation across the three models shows a strong general match, proving the NLARX framework's fundamental viability. 
 <figure>
-  <img src="./assets/Figure_NLARXEst.jpg" alt="Comparison of EKF and UKF Bias">
+  <img src="./assets/Figure_NLARXEst.jpg" alt="Time-Series Analysis of NLARX Model Plants">
   <figcaption align="center"><b>Figure 1:</b> Performance comparison between NLARX Models  during hysteretic loading and complex nonlinear behaviors.</figcaption>
 </figure>
 
 * **Hysteresis Matching (Figure 2)**: `Sigmoid` (98.2%) and `idTreePartition` (98.4%) achieved the best fitness for large-scale hysteresis loops. Wavelet (76.2%) is kept as a secondary specialist for transient behavior at this stage. 
 <figure>
-  <img src="./assets/Figure_HysteresisNLARXest.jpg" alt="Comparison of EKF and UKF Bias">
+  <img src="./assets/Figure_HysteresisNLARXest.jpg" alt="Comparison of NLARX models and Hysteresis">
   <figcaption align="center"><b>Figure 2:</b> Performance comparison between NLARX Models  during hysteretic loading and unloading. Noting that Sigmoid - red and idTreePartition - Dashed Blue closely follows the Measured Hysteresis trends.</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ Before selecting an estimator, a **Jacobian Proxy** analysis was performed to ev
 
 * **Evidence (Figure 3)**: Gradient analysis revealed massive, non-differentiable spikes (ranging from **+400 to -1100**) during pressure transitions.
 <figure>
-  <img src="./assets/GradientJacobian.jpg" alt="Comparison of EKF and UKF Bias">
+  <img src="./assets/GradientJacobian.jpg" alt="Jacobian Gradient Spike">
   <figcaption align="center"><b>Figure 3:</b> Jacobian Gradient by Proxy showing that gradient spikes emerges massively across all three distinct NLARX Models. </figcaption>
 </figure>
 
@@ -46,7 +46,7 @@ Before selecting an estimator, a **Jacobian Proxy** analysis was performed to ev
 Three Kalman variants (EKF, UKF, CKF) were benchmarked against measured length data to determine the most robust tracker.
 
 * **The Bias Problem (Figure 4)**: Both the EKF and Cubature Kalman Filter (CKF) failed to resolve hysteresis-induced offsets, resulting in a persistent **-7.5 mm tracking bias**. <figure>
-  <img src="./assets/Figure_TimeSeries_KalmanEstimate.jpg" alt="Comparison of EKF and UKF Bias">
+  <img src="./assets/Figure_TimeSeries_KalmanEstimate.jpg" alt="Time-Series Domain tracking against Kalman Filters">
   <figcaption align="center"><b>Figure 4:</b> Time-series comparison between three NLARX Models plant fed into each Kalman Filter. From Top to Bottom: Sigmoid | Wavelet | idTreePartition</figcaption>
 </figure>
 
@@ -58,8 +58,8 @@ Three Kalman variants (EKF, UKF, CKF) were benchmarked against measured length d
 
 ## **Conclusion: Final Architecture Selection**
 <figure>
-  <img src="./assets/Figure_HysteresisKalmanFilt.jpg" alt="Comparison of EKF and UKF Bias">
-  <figcaption align="center"><b>Figure 4:</b> Time-series comparison between three NLARX Models plant fed into each Kalman Filter. From Top to Bottom: Sigmoid | Wavelet | idTreePartition</figcaption>
+  <img src="./assets/Figure_HysteresisKalmanFilt.jpg" alt="Kalman Filter Comparison to NLARX Plant and Measured Hysteresis">
+  <figcaption align="center"><b>Figure 5:</b> Time-series comparison between three NLARX Models plant fed into each Kalman Filter. From Top to Bottom: Sigmoid | Wavelet | idTreePartition</figcaption>
 </figure>
 
 **Figure 5** illustrates the final comparison: despite the inherent difficulty in tracking raw hysteresis, the **Sigmoid NLARX + UKF** combination emerged as the most stable architecture. It provides the necessary gradient smoothness for the filter while rejecting the biases that crippled standard industry estimators. It is however worth noting that if Pressure-Length Hysteresis were to be the desired target instead of RMSE fit, the Sigmoid NLARX + EKF and the Wavelet NLARX + UKF should be added as a secondary focus if time permits for extension. 

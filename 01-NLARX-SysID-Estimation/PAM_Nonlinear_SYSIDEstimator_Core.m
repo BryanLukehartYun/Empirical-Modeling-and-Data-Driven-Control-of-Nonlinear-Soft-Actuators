@@ -2,7 +2,11 @@
 % original data used for the Technical Writeup, they are meant to
 % demostrate that the code works
 load('CombinedPermutation_EXAMPLE.mat')
-Insert = Permutation3;
+Insert = Permutation3; 
+% There exists 3 different permutations based on
+%           - Permutation1
+%           - Permutation2
+%           - Permutation3
 L = Insert.Length;  % Length - Output
 P  = Insert.Pressure; % Pressure - Input
 
