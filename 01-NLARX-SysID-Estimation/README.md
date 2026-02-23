@@ -63,6 +63,8 @@ Three Kalman variants (EKF, UKF, CKF) were benchmarked against measured length d
   <figcaption align="center"><b>Figure 5:</b> Time-series comparison between three NLARX Models plant fed into each Kalman Filter. From Top to Bottom: Sigmoid | Wavelet | idTreePartition</figcaption>
 </figure>
 
+
+
 **Figure 5** illustrates the final comparison: despite the inherent difficulty in tracking raw hysteresis, the **Sigmoid NLARX + UKF** combination emerged as the most stable architecture. It provides the necessary gradient smoothness for the filter while rejecting the biases that crippled standard industry estimators. It is however worth noting that if Pressure-Length Hysteresis were to be the desired target instead of RMSE fit, the Sigmoid NLARX + EKF and the Wavelet NLARX + UKF should be added as a secondary focus if time permits for extension. 
 
 
