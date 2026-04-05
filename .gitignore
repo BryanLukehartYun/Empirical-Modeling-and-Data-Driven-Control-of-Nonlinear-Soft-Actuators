@@ -1,0 +1,15 @@
+# --- MATLAB Temporary & Recovery Files ---
+*.asv              
+*.m~               # Backup files
+*.slxc             # Simulink cache
+*.mex* # Compiled MEX files (OS-specific to macOS
+slprj/             # Simulink project generation folders
+catapult/          # Synthesis logs
+work/              # General workspace junk
+
+# --- OS & IDE Junk ---
+.DS_Store          # macOS junk (for the Macbook)
+.directory         # KDE/Dolphin junk (for CachyOS)
+.vscode/           # Local VS Code settings
+.idea/             # IntelliJ/PyCharm settings
+*.log              # Simulation or crash logs
