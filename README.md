@@ -1,15 +1,17 @@
 ## Pneumatic Artificial Muscle Nonlinear Dynamics Analysis [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18737435.svg)](https://doi.org/10.5281/zenodo.18737435)
 
-
-**Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs). Features NLARX system identification (Sigmoid, Wavelet, idTreePartition) and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control.** 
+**Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs). Features NLARX system identification (Sigmoid, Wavelet, idTreePartition) and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control + PID** 
 
 **Preface**: Traditional industry estimators (EKF/CKF) and controls fail to estimate/ predict soft-actuator dynamics due to inherent nonlinear hysteresis and non-differentiable gradient spikes. This repository contains a high-performance skeleton of the Guidance, Navigation, and Control (GNC) framework for stable open-loop modeling and closed-loop control of McKibben Artifical Muscles. Three reports demonstrates a full-stack engineering pipeline: from identifying non-differentiable plant dynamics to implementing derivative-free state estimation and nonlinear model predictive control over nonlinear hysteretic actuators.
 
 
 ## Technical Highlights & Results 
-* Model Fidelity - Achieved a 98.2% fitness match using Sigmoid-NLARX models, significantly outperforming standard linear approximations in capturing hysteresis drift inherent to soft actuators, and stable for driving NMPC optimization. 
-* Derivative-Free Estimation: Implements an **Unscented Kalman Filter** to bypass massive Jacobian spikes (+400 to -1100) that casues standard EKF linearization to fail. Validated robustness by using Monte Carlo simulations. 
+* Since the initial release back in February 22, 2026; the repo containing the reports and analysis has been ported to Python for major improvements in computational times. Report 01 and 02 have been updated to reflect this. Report 03 was skipped since Report 04 already handles the integration and thus makes the Report 03 update redundant at this stage as of April 05, 2026.  
+* Model Fidelity - Achieved a 99.9% fitness match using Sigmoid-NLARX models, significantly outperforming standard linear approximations in capturing hysteresis drift inherent to soft actuators, and stable for driving NMPC optimization. 
+* Derivative-Free Estimation: Implements an **Unscented Kalman Filter** to overcome non-differentiable gradient spikes that degrade derivative-based filters, eliminating −7.5 mm tracking bias. Validated robustness via Monte Carlo simulations.
 * NMPC Performance: Achieves a 75.6% reduction in tracking error compared to baseline PID controllers in high-nonlinearity environments. 
+* A full Sigmoid > UKF > NMPC (or PID) with Monte Carlo Simulation stack implemented.
+> Note: The Full stack is represented as 04-FullIntegrationGNC and is in the progress of being added. This note will be deleted when the report is added.
 
 ## Project Architecture & Reports
 | Module | Technical Focus | Key Metric |
@@ -18,6 +20,8 @@
 | **[02-Monte-Carlo-KalmanFilter](./02-Monte-Carlo-KalmanFilter/)** | **State Estimation** | **Validate Robustness of Sigmoid-NLARX and UKF** |
 | **[03-Nonlinear-MPC](./03-Nonlinear-MPC/)** | **Optimal Control** | **1.36 mm Tracking RMSE** |
 | **[03.5-LinkedInReport](./03.5-DynamicPertubationNMPC_LinkedIn/)** | **Dynamic Pertubation** | **3.71 mm RMSE when subject to variable range** |
+| **[04-FullIntegrationGNC]()** | **Full Stack Integrated** | **Tunable Gains, Randomized Chaotic Pertubation, and Monte Carlo Sim** |
+> Note: Report 01 and 02 have been updated to reflect figures computed in Python. Report 03 (and by extension 03.5) was skipped due to upcoming Report 04 integrating all Reports for the analysis. 
 ## Institutional Context & Academic Foundation | Technical Expansion
 This framework represents the **technical expansion and demonstration** of research established within the **BioSEL Lab** at the **Rochester Institute of Technology (RIT)**.
 
@@ -42,27 +46,27 @@ For further information pertaining the research related to thesis under RIT, ple
 ## **Roadmap**
 This repository is organized into three distinct technical reports that follows **Input $\rightarrow$ Evidence $\rightarrow$ Decision framework**. This functionally amounts to a **Guidance, Navigation, and Control (GNC)** stack-equivalent. 
 
-1. **01-NLARX-SysID-Estimation**: Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter.
+1. **01-NLARX-SysID-Estimation**: (DONE) Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter.
 
 2. **02-Monte-Carlo-KalmanFilter**: (Done - Further Finetuning) Statistical verification of estimator robustness across randomized initial conditions. Please refer to the note at the bottom for more information. 
 
-3. **03-Nonlinear-MPC**: (Done - Further Finetuning) Real-Time Tracking of Fourier-series references using the NLARX PLant Models for Model Predictive Controls. Note source code for driving this part is embargoed. Please refer to the note at the bottom for more information. 
+3. **03-Nonlinear-MPC**: (Done - Frozen in favor of 04-GNCIntegration) Real-Time Tracking of Fourier-series references using the NLARX PLant Models for Model Predictive Controls. Note source code for driving this part is embargoed. Please refer to the note at the bottom for more information. 
 
-4. **03.5-DynamicPertubationNMPC_LinkedIn** (Done - May Fill out ReadMe at a Later date) This report is linked to the LinkedIn Post that was made recently, it largely deals with adding pertubations ranging from 50-120% gain stimulating pressure leakages, additional effort spikes, and other factors that might arise to sustained burst (showcasing that 120% was where the NMPC started to become unstable). The ReadMe for this folder is intentionally left sparse. 
+4. **03.5-DynamicPertubationNMPC_LinkedIn** (Done - May Fill out ReadMe at a Later date) This report is linked to the LinkedIn Post that was made recently, it largely deals with adding pertubations ranging from 50-120% gain stimulating pressure leakages, additional effort spikes, and other factors that might arise to sustained burst (showcasing that 120% was where the NMPC started to become unstable). The ReadMe for this folder is intentionally left sparse and only served as a demonstration for Report 04. 
 
-5. **04-GNC-Integration**: (Planned). Integrate and expand all three scripts into a single real-time NMPC + UHKF estimator solution backed by Monte Carlo Simualtions. 
+5. **04-FullIntegrationGNC**: (Actively adding to Repo) Integrated all three major modules into a single real-time UKF + NMPC/PID controller with Monte Carlo Simulations. Here, multiple conditions ranging from ideal operating conditions to randomized pertubations are tested + controller gains are tested. 
 
 6. **Notice**: Future works may expand or extend the reports here for publications (not limited to the aforementioned journals). This repository is intended to validate and serve as a sample of the work that can be extended to the Industry. 
 
-> **Note:** Full source code for Reports 02 and 03 will be released 
+> **Note:** Full source code for Reports 02, 03, and 04 will be released 
 > publicly following publication. License will be updated to CC BY 4.0 
-> for figures and reports at that time.
+> for figures and reports in the future when this occurs.  
 
 ## **Licensing & Intellectual Property**
 
 This project utilizes a **dual-licensing framework** to distinguish between functional software and technical research analysis:
 
-* **Software & Scripts**: All MATLAB source code (.m) and supporting functions are provided under the **MIT License**.
+* **Software & Scripts**: All MATLAB/Python source code (.m, .py) and supporting functions are provided under the **MIT License**.
 
 * **Technical Analysis**: The reports, unique figure interpretations, and design-decision narratives contained in the README files are copyright © 2026 Bryan Lukehart-Yun and licensed under **CC BY-NC-ND 4.0**. 
 
