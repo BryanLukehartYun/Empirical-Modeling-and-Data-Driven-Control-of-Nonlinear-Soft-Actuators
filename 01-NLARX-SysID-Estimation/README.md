@@ -85,7 +85,7 @@ Three Kalman variants (EKF, UKF, CKF) were benchmarked against measured length d
 
 ## **Critical Analysis Notes for Reproductibility and Future Works**
 
-### **Why Wavelet Performance @ Line 26 Matters**
+### **Why Wavelet Performance Gap Matters**
 
 The 20+ percentage point difference between MATLAB Wavelet performance (76.2%) and Python performance (97.8%) requires explicit clarification and therefore is in need of auditing. It is likely that the MATLAB implementation uses suboptimal parameters, not an inherent algorithmic limitation. 
 

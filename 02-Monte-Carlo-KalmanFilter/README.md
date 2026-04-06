@@ -30,8 +30,8 @@ To simulate pneumatic variance and sensor noise, the estimator was subjected to 
 
 ---
 
-## **2 . Final Selection for Control**
-While the Wavelet model is a robust estimator, the Sigmoid-NLARX was ultimately selected for Report #3 (MPC). The Sigmoid's continous gradients ensures that the numerical stability will work with the NMPC optimizer, which is critical for real-time pneumatic control.
+## **2. Final Selection for Control**
+While the Wavelet model is a robust estimator, the Sigmoid-NLARX was ultimately selected for Report #3 (MPC). The Sigmoid's continuous gradients ensures that the numerical stability will work with the NMPC optimizer, which is critical for real-time pneumatic control.
 
 **Selected Model for Report #3 (MPC):**
 * **Plant Model**: Sigmoid-based NLARX.
@@ -39,7 +39,7 @@ While the Wavelet model is a robust estimator, the Sigmoid-NLARX was ultimately 
 ---
 
 ## **3. Implementation Status**
-The Monte Carlo Scripts are currently undergoing final optimization and local validation. Source code for this module will be pushed to the directory when full papers goes live. See the ROOT README for more information. 
+The Monte Carlo Scripts are currently undergoing final optimization and local validation. Source code for this module will be pushed to the directory when  when the full paper goes live. See the ROOT README for more information. 
 
 ---
 
