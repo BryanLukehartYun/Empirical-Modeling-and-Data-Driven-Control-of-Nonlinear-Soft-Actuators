@@ -16,10 +16,10 @@
 ## Project Architecture & Reports
 | Module | Technical Focus | Key Metric |
 | :--- | :--- | :--- |
-| **[01-NLARX-SysID](./01-NLARX-SysID-Estimation/)** | **Nonlinear System ID** | **98.2% Sigmoid Fitness** |
-| **[02-Monte-Carlo-KalmanFilter](./02-Monte-Carlo-KalmanFilter/)** | **State Estimation** | **Validate Robustness of Sigmoid-NLARX and UKF** |
-| **[03-Nonlinear-MPC](./03-Nonlinear-MPC/)** | **Optimal Control** | **1.36 mm Tracking RMSE** |
-| **[03.5-LinkedInReport](./03.5-DynamicPertubationNMPC_LinkedIn/)** | **Dynamic Pertubation** | **3.71 mm RMSE when subject to variable range** |
+| **[01-SystemIdentification](./01-SystemIdentification/)** | **Nonlinear System ID** | **98.2% Sigmoid Fitness** |
+| **[02-MonteCarlo](./02-MonteCarlo/)** | **State Estimation** | **Validate Robustness of Sigmoid-NLARX and UKF** |
+| **[03-NMPC](./03-NMPC/)** | **Optimal Control** | **1.36 mm Tracking RMSE** |
+| **[03.5-DemoRandPerturb-LinkedIn](./03.5-DemoRandPerturb-LinkedIn/)** | **Dynamic Perturbation** | **3.71 mm RMSE when subject to variable range** |
 | **[04-FullIntegrationGNC]()** | **Full Stack Integrated** | **Tunable Gains, Randomized Chaotic Perturbation, and Monte Carlo Sim** |
 > Note: Report 01 and 02 have been updated to reflect figures computed in Python. Reports 03 and 03.5 were intentionally skipped (despite internal Python implementations) because Report 04 integrates all reports for unified analysis, making separate 03/03.5 updates redundant.  
 ## Institutional Context & Academic Foundation | Technical Expansion
@@ -46,13 +46,13 @@ For further information pertaining the research related to thesis under RIT, ple
 ## **Roadmap**
 This repository is organized into three distinct technical reports that follows **Input $\rightarrow$ Evidence $\rightarrow$ Decision framework**. This functionally amounts to a **Guidance, Navigation, and Control (GNC)** stack-equivalent. 
 
-1. **01-NLARX-SysID-Estimation**: (DONE) Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter.
+1. **01-SystemIdentification**: (DONE) Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter.
 
-2. **02-Monte-Carlo-KalmanFilter**: (Done - Further Finetuning) Statistical verification of estimator robustness across randomized initial conditions. Please refer to the note at the bottom for more information. 
+2. **02-MonteCarlo**: (Done - Further Finetuning) Statistical verification of estimator robustness across randomized initial conditions. Please refer to the note at the bottom for more information. 
 
-3. **03-Nonlinear-MPC**: (Done - Frozen in favor of 04-GNCIntegration) Real-Time Tracking of Fourier-series references using the NLARX PLant Models for Model Predictive Controls. Note source code for driving this part is embargoed. Please refer to the note at the bottom for more information. 
+3. **03-NMPC**: (Done - Frozen in favor of 04-GNCIntegration) Real-Time Tracking of Fourier-series references using the NLARX Plant Models for Model Predictive Controls. Note source code for driving this part is embargoed. Please refer to the note at the bottom for more information. 
 
-4. **03.5-DynamicPertubationNMPC_LinkedIn** (Done - May Fill out ReadMe at a Later date) This report is linked to the LinkedIn Post that was made recently, it largely deals with adding perturbations ranging from 50-120% gain stimulating pressure leakages, additional effort spikes, and other factors that might arise to sustained burst (showcasing that 120% was where the NMPC started to become unstable). The ReadMe for this folder is intentionally left sparse and only served as a demonstration for Report 04. 
+4. **03.5-DemoRandPerturb-LinkedIn** (Done - May Fill out ReadMe at a Later date) This report is linked to the LinkedIn Post that was made recently, it largely deals with adding perturbations ranging from 50-120% gain stimulating pressure leakages, additional effort spikes, and other factors that might arise to sustained burst (showcasing that 120% was where the NMPC started to become unstable). The ReadMe for this folder is intentionally left sparse and only served as a demonstration for Report 04. 
 
 5. **04-FullIntegrationGNC**: (Actively adding to Repo) Integrated all three major modules into a single real-time UKF + NMPC/PID controller with Monte Carlo Simulations. Here, multiple conditions ranging from ideal operating conditions to randomized pertubations are tested + controller gains are tested. 
 

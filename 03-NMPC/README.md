@@ -6,7 +6,7 @@ This report evaluates the final control layer of the framework: a **Nonlinear MP
 * **Technical Analysis**: All figures and tracking metrics are derived from the validated research plant model.
 * **Licensing**: Documentation, visuals (Figures), and analysis are licensed under **CC BY-NC-ND 4.0**.
 * **Research Integrity**: Controller optimization scripts remain under embargo pending formal publication in ***IEEE T-RO***, ***IJRR***, and ***Data in Brief***. 
-
+ 
 ---
 
 ## **1. Tracking & Control Performance: NMPC vs. Baseline PID**
