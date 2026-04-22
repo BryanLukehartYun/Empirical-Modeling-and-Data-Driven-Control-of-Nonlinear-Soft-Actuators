@@ -23,7 +23,7 @@
 | **[02-MonteCarlo](./02-MonteCarlo/)** | **State Estimation** | **Validate Robustness of Sigmoid-NLARX and UKF** |
 | **[03-NMPC](./03-NMPC/)** | **Optimal Control** | **1.36 mm Tracking RMSE** |
 | **[03.5-DemoRandPerturb-LinkedIn](./03.5-DemoRandPerturb-LinkedIn/)** | **Dynamic Perturbation** | **3.71 mm RMSE when subject to variable range** |
-| **[04-FullIntegrationGNC]()** | **Full Stack Integrated** | **Tunable Gains, Randomized Chaotic Perturbation, and Monte Carlo Sim** |
+| **[04-FullIntegrationGNC](./04-FullIntegrationGNC/)** | **Full Stack Integrated** | **Tunable Gains, Randomized Chaotic Perturbation, and Monte Carlo Sim** |
 > Note: Report 01 and 02 have been updated to reflect figures computed in Python. Reports 03 and 03.5 were intentionally skipped (despite internal Python implementations) because Report 04 integrates all reports for unified analysis, making separate 03/03.5 updates redundant. Report 03 still remains as it is and Report 03.5 was meant for demostration on LinkedIn.   
 
 ## Institutional Context & Academic Foundation | Technical Expansion
@@ -50,7 +50,7 @@ For further information pertaining the research related to thesis under RIT, ple
 
 
 ## **Roadmap**
-This repository is organized into three distinct technical reports that follows **Input $\rightarrow$ Evidence $\rightarrow$ Decision framework**. This functionally amounts to a **Guidance, Navigation, and Control (GNC)** stack-equivalent. 
+This repository is organized into three distinct technical reports that follows **Input $\rightarrow$ Evidence $\rightarrow$ Decision framework**. This functionally amounts to a **Guidance, Navigation, and Control (GNC)** stack-equivalent. Furthermore, the fourth technical report, 04-FullIntegrationGNC
 
 1. **01-SystemIdentification**: (DONE) Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter.
 
