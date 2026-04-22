@@ -12,7 +12,9 @@
 * Derivative-Free Estimation: Implements an **Unscented Kalman Filter** to overcome non-differentiable gradient spikes that degrade derivative-based filters, eliminating −7.5 mm tracking bias. Validated robustness via Monte Carlo simulations.
 * A full Sigmoid > UKF > NMPC (or PID) with Monte Carlo Simulation stack implemented in Python and now preferred for the Simulation. 
 
-> Note: The Full stack is represented as 04-FullIntegrationGNC and is in the progress of being added. This note will be deleted when the report is added.
+> Note #1: The Full stack is represented as 04-FullIntegrationGNC and is in the progress of being added. This note will be deleted when the report is added.
+
+> Note #2: The repo is also being renamed since after some considerations...GNC related methods are not as desired, instead the push will be made to broaden the horizon. The names being considered are: (Data-Driven-Control-for-Nonlinear-Soft-Actuators) or (Empirical-Modeling-and-Control-for-Nonlinear-Soft-Actuators) or (Nonlinear-Modeling-SysID-and-AdaptiveControl-for-Soft-Actuators)  
 
 ## Project Architecture & Reports
 | Module | Technical Focus | Key Metric |
