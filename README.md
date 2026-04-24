@@ -12,9 +12,7 @@
 * Derivative-Free Estimation: Implements an **Unscented Kalman Filter** to overcome non-differentiable gradient spikes that degrade derivative-based filters, eliminating −7.5 mm tracking bias. Validated robustness via Monte Carlo simulations.
 * A full Sigmoid > UKF > NMPC (or PID) with Monte Carlo Simulation stack implemented in Python and now preferred for the Simulation. 
 
-> Note #1: The Full stack is represented as 04-FullIntegrationGNC and is in the progress of being added. This note will be deleted when the report is added.
-
-> Note #2: The repo is also being renamed since after some considerations...GNC related methods are not as desired, instead the push will be made to broaden the horizon. The names being considered are: (Data-Driven-Control-for-Nonlinear-Soft-Actuators) or (Empirical-Modeling-and-Control-for-Nonlinear-Soft-Actuators) or (Nonlinear-Modeling-SysID-and-AdaptiveControl-for-Soft-Actuators)  
+> Note: The repository was originally named [Nonlinear-Actuators-GNC-Robotics-Framework] since the scope has expanded beyond GNC and that the name was constraining. Instead, the current name: [Empirical-Modeling-and-Control-for-Nonlinear-Soft-Actuators], is seen as more accurate since the physical hard data drives the analysis and serves as empirical modeling for which further analysis can occur. 
 
 ## Project Architecture & Reports
 | Module | Technical Focus | Key Metric |
@@ -81,6 +79,6 @@ Full high-fidelity datasets (15M+ samples) and theoretical derivations are reser
 
 * **Future Release** The complete 15-million-sample global dataset will be published via Data in Brief; this repository will be updated with the public access links upon release. 
 
-**Citation**: If you utilize this GNC framework or the UKF bias-rejection analysis in your work, please attribute it to this repository or the forthcoming Zenodo DOI. **In the Future, a list of publications will be listed here for future citations to use instead.**
+**Citation**: If you utilize this GNC framework or the UKF bias-rejection analysis in your work, please attribute it to this repository or the Zenodo DOI at the top. **In the Future, a list of publications will be listed here for future citations to use instead.**
 
 **TL;DR: The MATLAB Code is open-source (MIT License), while the Technical Reports, Analysis, and Figures are protected intellectual property (CC BY-NC-ND 4.0).**
