@@ -1,7 +1,7 @@
 # Technical Report #1 - Nonlinear System ID & State Estimation
 ## Overview & Data Disclaimer
 This report evaluates the system identification works for nonlinear pneumatic actuators.
-* Technical Analysis: All figures and metrics (e.g., 98.2% fitness in MATLAB, 96.3–97.8% in Python) are derived from a high fidelity 10,000 sample research dataset.
+* Technical Analysis: All figures and metrics (e.g., 98.2% fitness in MATLAB, 96.3–97.8% in Python) are derived from a high fidelity 10,000 sample research dataset equivalent to 5 actuation cycles.
 * Demonstration Data: The provided data.mat is a **synthetic placeholder**. It ensures that the implementation scripts will run, but it does not match or replicates the specific benchmarks shown in this report. 
 * **Licensing**: The technical analysis, figures, and documentation in this report are licensed under **CC BY-NC-ND 4.0**. The implementation code is licensed under **MIT**.
 * Research Integrity: The full dataset remains under embargo pending publication in ***IEEE T-RO***, ***IJRR***, and ***Data in Brief***.
@@ -35,7 +35,7 @@ The plant was modeled using three distinct Nonlinear ARX (NLARX) models to map p
 ---
 
 ## **2. Jacobian Sensitivity & The Linearization Trap**
-Before selecting an estimator, a **Jacobian Proxy** analysis was performed to evaluate the numerical stability of derivative-based filters. 
+Before selecting an estimator, a **Jacobian Proxy** analysis was performed to evaluate the numerical stability of derivative-based filters and determine the stability. 
 
 * **Evidence (Figure 3)**: Gradient analysis revealed massive, non-differentiable spikes (ranging from **+400 to -800**) during pressure transitions.
 <figure>
@@ -44,7 +44,7 @@ Before selecting an estimator, a **Jacobian Proxy** analysis was performed to ev
 </figure>
 
 
-* **Decision**: These Jacobian spikes cause the EKF linearization assumption to fail catastrophically, rendering the filter ill-conditioned and unreliable. To avoid this "Linearization Trap," the analysis moved toward derivative-free sampling methods, specifically the **Unscented Kalman Filter (UKF)**.
+* **Decision**: These Jacobian spikes cause the EKF linearization assumption to fail catastrophically, rendering the filter ill-conditioned and unreliable. To avoid this "Linearization Trap," the analysis moved toward derivative-free sampling methods, specifically the *Unscented Kalman Filter (UKF)*. **More specifically, this implementation indicates that the EKF / CBK would be numerical unstable based on the learned model, therefore UKF for this model provides a more robust performance**. 
 
 **Note:** Figure 3 was originally plotted in MATLAB and has been replaced with the Python implementation for consistency.
 

@@ -2,7 +2,7 @@
 
 **Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs), which is a physical actuator that uses compliant materials for its fabrication. Features system identification (Sigmoid, Wavelet, idTreePartition and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control + PID** 
 
-**Preface**: Traditional industry estimators (EKF/CKF) often exhibit numerical instability (Jacobian spikes) and struggles to estimate/ predict soft-actuator dynamics due to inherent nonlinear hysteresis and non-differentiable gradient spikes. This repository contains a general framework of stable open-loop modeling and closed-loop control for McKibben Artificial Muscles using the Guidance, Navigation, and Control (GNC) at this time. Four reports demonstrate a full-stack engineering pipeline: from identifying non-differentiable plant dynamics to implementing derivative-free state estimation and nonlinear model predictive control over nonlinear hysteretic actuators.
+**Preface**: Traditional industry estimators (EKF/CKF) often exhibit numerical instability (Jacobian spikes) and struggles to estimate/ predict soft-actuator dynamics due to inherent nonlinear hysteresis and non-differentiable gradient spikes depending on the data being fed. This repository contains a general framework of stable open-loop modeling and closed-loop control for McKibben Artificial Muscles using the Guidance, Navigation, and Control (GNC) at this time (With plans to implement Hysteresis model or SINDy). Four reports demonstrate a full-stack engineering pipeline: from identifying non-differentiable plant dynamics to implementing derivative-free state estimation and nonlinear model predictive control over nonlinear hysteretic actuators.
 
 
 ## Technical Highlights & Results 
@@ -50,7 +50,7 @@ For further information pertaining the research related to thesis under RIT, ple
 ## **Roadmap**
 This repository is organized into three distinct technical reports that follows **Input $\rightarrow$ Evidence $\rightarrow$ Decision framework**. This functionally amounts to a **Guidance, Navigation, and Control (GNC)** stack-equivalent. Furthermore, the fourth technical report, 04-FullIntegrationGNC
 
-1. **01-SystemIdentification**: (DONE) Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter.
+1. **01-SystemIdentification**: (DONE) Comparison of different models (NLARX models vs different Kalman Filters) and rejection of Extended Kalman Filter (EKF) and Cubature Kalman Filter (CKF) in favor of Unscented Kalman Filter due to large Jacobian variations based on learned model.
 
 2. **02-MonteCarlo**: (Done) Statistical verification of estimator robustness across randomized initial conditions. Please refer to the note at the bottom for more information. 
 
