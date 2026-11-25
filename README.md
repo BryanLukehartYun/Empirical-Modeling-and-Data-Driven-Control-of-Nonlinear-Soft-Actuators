@@ -1,9 +1,15 @@
 ## Pneumatic Artificial Muscle - Nonlinear Empirical Modeling and Data Driven Control of McKibben Muscles [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18737435.svg)](https://doi.org/10.5281/zenodo.18737435)
 
-**Nonlinear GNC framework for Pneumatic Artificial Muscles (PAMs), which is a physical actuator that uses compliant materials for its fabrication. Features system identification (Sigmoid, Wavelet, idTreePartition and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control + PID** 
+> [!IMPORTANT]
+> The Dataset for the actuators are available. ThE Data In Brief Paper is still under review and will be updated accordingly.
+
+**Nonlinear GNC report for Pneumatic Artificial Muscles (PAMs), which is a physical actuator that uses compliant materials for its fabrication. Features system identification (Sigmoid, Wavelet, idTreePartition and robust state estimation (Kalman Filters) designed to reject complex hysteresis-induced bias and non-differentiable gradient spikes. Also contains Monte Carlo regarding Unscented Kalman Filter and Model Predictive Control + PID** 
 
 **Preface**: Traditional industry estimators (EKF/CKF) often exhibit numerical instability (Jacobian spikes) and struggles to estimate/ predict soft-actuator dynamics due to inherent nonlinear hysteresis and non-differentiable gradient spikes depending on the data being fed. This repository contains a general framework of stable open-loop modeling and closed-loop control for McKibben Artificial Muscles using the Guidance, Navigation, and Control (GNC) at this time (With plans to implement Hysteresis model or SINDy). Four reports demonstrate a full-stack engineering pipeline: from identifying non-differentiable plant dynamics to implementing derivative-free state estimation and nonlinear model predictive control over nonlinear hysteretic actuators.
 
+**Why Do this**: This repository was designed to be a demonstration of what I've learned in the following course of: Classical Controls, Nonlinear Controls, Digital Controls, and Optimal Math Design. I wanted to be able to showcase what I had learned, and knew that based on some older data (now published on Zenodo and with Data in Brief) that this would be a good place to attempt it. While some of this might be sufficient as a paper of any nature, this was forgoed due to rigor and very limited cycle especially since only _5_ cycles were ever used picked at random (which distorts the model).
+
+> This repo was also done in order for BioSEL to test how to use the Zenodo for release and this was a dry run.
 
 ## Technical Highlights & Results 
 * Since the initial release back on February 22, 2026; the repo containing the reports and analysis done in MATLAB has since then, been ported to Python for major improvements in computational times. Report 01 and 02 have been updated to reflect this. Report 03 was skipped since Report 04 already handles the integration and thus makes the Report 03 update redundant at this stage as of April 05, 2026.  
@@ -28,13 +34,13 @@
 This framework represents the **technical expansion and independent extension** of research established within the **BioSEL Lab** at the **Rochester Institute of Technology (RIT)**.
 
 * The Problem: McKibben Artificial Muscles are notorious for hysteretic drift that renders traditional linear control useless.
-* **Academic Anchor**: Builds upon principles validated in my thesis and bridge the gap between Academia and the industry.  
+* **Academic Links**: Builds upon principles validated in my thesis and bridge the gap between MS research and what Aerospace asks for.  
 * **Thesis Title**: *Stable Open-Loop Modelling of McKibben Muscle with Tunable
 Slider*.
 * **Certification**: Master of Science in Mechanical Engineering (Date: August 2022 - December 2025). 
 * **Abstract & Metadata** Formal Abstract and institutional metadata available via [RIT Digital Commons - Thesis](https://repository.rit.edu/theses/12372/)
-* **Status & Notice**: The M.S. Thesis with full-scale research (data, derivations, and analysis) are currently under embargo pending publications in *IEEE T-RO*, *IJRR*, and *Data in Brief*.
-* **Independent Evolution (January 2026 - Present)**: Everything else in this repository such as the Sigmoid-NLARX identification, the Python port, the UKF bias-rejection, and the NMPC architecture is an **independent extension** designed to apply a Guidance, Navigation, and Controls in this repo. 
+* **Status & Notice**: The M.S. Thesis with full-scale research (data, derivations, and analysis) are currently available (by December 16th, 2026) and *Data in Brief* / Zenodo release.
+* **Independent Evolution (January 2026 - Present)**: Everything else in this repository such as the Sigmoid-NLARX identification, the Python port, the UKF bias-rejection, and the NMPC architecture is an **independent demonstration** designed to apply a Guidance, Navigation, and Controls framework in this repo. 
 
 For further information pertaining the research related to thesis under RIT, please reach out to the following authors: 
 * Primary Author: Bryan Lukehart-Yun @ wwy6929@rit.edu pertaining to research collaboration or thesis. For clarification, refer to the table below if related to professional interest.  
@@ -56,11 +62,11 @@ This repository is organized into three distinct technical reports that follows 
 
 3. **03-NMPC**: (*Done - Deprecated in favor of 04-GNCIntegration*) Real-Time Tracking of Fourier-series references using the NLARX Plant Models for Model Predictive Controls. Note source code for driving this part is embargoed. Please refer to the note at the bottom for more information. 
 
-4. **03.5-DemoRandPerturb-LinkedIn** (Done - Demo ONLY) This report is linked to the LinkedIn Post that was made recently, it largely deals with adding perturbations ranging from 50-120% gain stimulating pressure leakages, additional effort spikes, and other factors that might arise to sustained burst (showcasing that 120% was where the NMPC started to become unstable). The ReadMe for this folder is intentionally left sparse and only served as a demonstration for Report 04. 
+4. **03.5-DemoRandPerturb-LinkedIn** (Done - Demo ONLY) This report is linked to the LinkedIn Post that was made recently, it largely deals with adding perturbations ranging from 50-120% gain stimulating pressure leakages, additional effort spikes, and other factors that might arise to sustained burst (showcasing that 120% was where the NMPC started to become unstable). The ReadMe for this folder is intentionally left sparse and only served as a demonstration for Report 04. Update: The LinkedIn post has dissapeared, I don't know why it was removed, but moving on. 
 
 5. **04-FullIntegrationGNC**: (Actively adding to Repo) Integrated all three major modules into a single real-time UKF + NMPC/PID controller with Monte Carlo Simulations. Here, multiple conditions ranging from ideal operating conditions to chaotic randomized pertubations are tested + controller gains are tested. 
 
-6. **Notice**: Future works may expand or extend the reports here for publications (not limited to the aforementioned journals). This repository is intended to validate and serve as a sample of the work that can be extended to the Industry. 
+6. **Notice**: Future works may expand or extend the reports here for publications (BIG IF). This repository is intended to validate and serve as a sample of the work that can be extended to the Industry. 
 
 > **Note:** Full source code for Reports 02, 03, and 04 will be released 
 > publicly following publication. License will be updated to CC BY 4.0 
@@ -75,9 +81,9 @@ This project utilizes a **dual-licensing framework** to distinguish between func
 * **Technical Analysis**: The reports, unique figure interpretations, and design narratives contained in the README files are copyright © 2026 Bryan Lukehart-Yun and licensed under **CC BY-NC-ND 4.0**. 
 
 * **Data Attribution**: The provided 10,000-sample dataset containing multiple permutations (.mat) is a series of randomized, non-representative slices **intended for architectural demonstration**.
-Full high-fidelity datasets (15M+ samples) and theoretical derivations are reserved for upcoming publications in T-RO, IJRR, and Data In Brief. Those were collected during graduate research at RIT. 
+Full high-fidelity datasets (49M+ samples) are available on Zenodo while theoretical derivations are reserved for upcoming publications in T-RO, IJRR, and Data In Brief. Those were collected during graduate research at RIT. 
 
-* **Future Release** The complete 15-million-sample global dataset will be published via Data in Brief; this repository will be updated with the public access links upon release. 
+* **Future Release** The complete 49-million-sample global dataset will be published via Data in Brief and is available on Zenodo. 
 
 **Citation**: If you utilize this GNC framework or the UKF bias-rejection analysis in your work, please attribute it to this repository or the Zenodo DOI at the top. **In the Future, a list of publications will be listed here for future citations to use instead.**
 
